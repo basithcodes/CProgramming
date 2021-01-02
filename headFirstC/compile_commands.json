@@ -1,0 +1,16 @@
+[
+    {
+        "arguments": [
+            "-c",
+            "-Os",
+            "-g",
+            "-std=gnu99",
+            "-Wall",
+            "-I.",
+            "-I/usr/avr/include/",
+            "-o"
+        ],
+        "directory": "/home/basith/Coding/microcontroller_programming/atmega328p/005usartComm",
+        "file": "usartCommTest.c"
+    }
+]
