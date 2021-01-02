@@ -4,7 +4,7 @@
 /*     length given in first argument. */
 
 #include <stdio.h>
-#include "inc/myfun.h"
+#include "myfun.h"
 
 int main() {
 	float number;	

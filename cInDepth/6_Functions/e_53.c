@@ -2,4 +2,8 @@
 /*       1 + 1/4 + 1/9 + 1/16 + ..........  */
 
 #include <stdio.h>
-#include "inc/myfun.h"
+#include "myfun.h"
+
+int main() {
+	
+}

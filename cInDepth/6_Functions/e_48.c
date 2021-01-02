@@ -2,7 +2,7 @@
 /*     function isPrime() containing only a return statement. This function  */
 /*     should return 1 if the number is prime and 0 otherwise. */
 #include <stdio.h>
-#include "inc/myfun.h"
+#include "myfun.h"
 
 int isPrime(int number);
 

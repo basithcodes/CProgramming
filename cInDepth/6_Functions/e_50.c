@@ -4,7 +4,7 @@
 /*     and remainder respectively, without the use of / and % operator. */
 
 #include <stdio.h>
-#include "inc/myfun.h"
+#include "myfun.h"
 
 int main() {
 	int num1, num2;

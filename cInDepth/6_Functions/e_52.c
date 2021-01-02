@@ -2,7 +2,7 @@
 /*     alphabet its upper case equivalent is returned otherwise the unchanged */
 /*     character is returned.  */
 #include <stdio.h>
-#include "inc/myfun.h"
+#include "myfun.h"
 
 int main() {
 	char character;

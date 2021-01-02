@@ -1,7 +1,7 @@
 /* 51. Write a function to find whether a character is alphanumberic. */
 
 #include <stdio.h>
-#include "inc/myfun.h"
+#include "myfun.h"
 
 int main() {
 	char character;
