@@ -97,3 +97,27 @@ float sumOfSeries(int limit) {
 
 	return sum;
 }
+
+void twinPrimes(int limit) {
+	int i, j, count = 0, previousPrime = 1, currentPrime;
+	for (i = 2; i <= limit; i++) { // generate numbers
+		for (j = 1; j <= i; j++) { // loop through to find factors
+			if (i%j == 0) { // condition to check for the factors
+				count++;
+				if (count > 2) { // factors  are more than two increse the number
+					continue;
+				}
+			}
+		}
+		if (count == 2) { // if it is prime(factors == 2)
+			currentPrime = i;
+			if (currentPrime - previousPrime == 2) { // if difference b/w them is 
+																  // two then print them as pairs
+				printf("(%d, %d)\n", previousPrime, currentPrime);
+			}
+			previousPrime = currentPrime; // I'm doing this bcoz I want to compare 
+													// with next prime when i calculate it
+		}
+		count = 0; 
+	}
+}
