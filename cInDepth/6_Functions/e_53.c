@@ -2,8 +2,12 @@
 /*       1 + 1/4 + 1/9 + 1/16 + ..........  */
 
 #include <stdio.h>
-#include "myfun.h"
+#include "../inc/myfun.h"
 
 int main() {
-	
+	int lastNumber;
+	printf("Enter a number: ");
+	scanf("%d", &lastNumber);
+	printf("Sum of given series = %f\n", sumOfSeries(lastNumber));
+	return 0;
 }

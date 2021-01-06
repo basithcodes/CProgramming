@@ -5,4 +5,5 @@ int Quotient(int divident, int divisor);
 int Remainder(int divident, int divisor);
 int alphaNumeric(char character);
 char sendUpperCaseCharacter(char character);
+float sumOfSeries(int limit);
 

@@ -86,3 +86,14 @@ char sendUpperCaseCharacter(char character) {
 	}
 	return character;
 }
+
+/* Function53 */
+/* This function find the sum of series 1 + 1/4 + 1/9 + 1/16 + ... */
+float sumOfSeries(int limit) {
+	float sum = 0, x;
+	for (x = 1; x <= limit; x++) {
+		sum = sum + 1/(x * x);
+	}
+
+	return sum;
+}
