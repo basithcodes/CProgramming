@@ -7,4 +7,5 @@ int alphaNumeric(char character);
 char sendUpperCaseCharacter(char character);
 float sumOfSeries(int limit);
 void twinPrimes(int limit);
+int isLeap(int year);
 

@@ -71,7 +71,7 @@ int Remainder(int divident, int divisor) {
 int alphaNumeric(char character) {
 	printf("Value: %d\n", character);
 	if ((character > 47 && character < 58) || (character > 64 && character < 91) 
-				|| (character > 96 && character < 123)) {
+			|| (character > 96 && character < 123)) {
 		return 1;
 	} 
 	return 0;
@@ -112,12 +112,31 @@ void twinPrimes(int limit) {
 		if (count == 2) { // if it is prime(factors == 2)
 			currentPrime = i;
 			if (currentPrime - previousPrime == 2) { // if difference b/w them is 
-																  // two then print them as pairs
+				// two then print them as pairs
 				printf("(%d, %d)\n", previousPrime, currentPrime);
 			}
 			previousPrime = currentPrime; // I'm doing this bcoz I want to compare 
-													// with next prime when i calculate it
+			// with next prime when i calculate it
 		}
 		count = 0; 
+	}
+}
+
+/* Function55 */
+/* This function finds if year given is leap year or not. */
+
+int isLeap(int year) {
+	if (year % 100 == 0) {
+		if (year % 400 == 0) {
+			return 1;
+		} else {
+			return 0;
+		}
+	} else {
+		if (year % 4 == 0) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }
