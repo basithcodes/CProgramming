@@ -140,3 +140,49 @@ int isLeap(int year) {
 		}
 	}
 }
+
+/* Fucntion 56 */
+/* This funciton verifies if a date enter is valid */
+void isValid(short int day, short int month, short int year) {
+	int flag, isleap;
+	if (year % 100 != 0 && year % 4 == 0 || year % 400 == 0) {
+		isleap = 1;
+	}	
+	
+	if (year < 1850 || year > 2050 || month < 1 || month > 12 || day < 1 || day > 31) {
+		flag = 0;
+	} else if (month == 2) {
+		if (day == 30 || day == 31 || (day == 29 && !isleap)) {
+			flag = 0;
+		}
+	} else if (month == 4 || month == 6 || month == 9 || month == 11) {
+		if (day == 31) {
+			flag = 0;
+		}
+	}
+
+	if (flag == 0) {
+		printf("Not a valid date\n");
+	} else {
+		printf("It's a valid date\n");
+	}
+}
+
+/* Fucntion 57 */
+/* This function compares two dates and if date 1 is before date 2 */
+/* it return 1 else it returns -1 */
+
+int cmpDate(int date1_day, int date1_month, int date1_year, int date2_day, int date2_month, int date2_year) {
+	int day, month, year;
+	year = date2_year - date1_year;
+	month = date2_month - date1_month;
+	day = date2_day - date1_day;
+
+	// Check if dates are valid
+	// If they are valid then subtract years, months and days.
+	// return 1 if date1 is before date2 else -1
+	
+	/* if (year < 1) { */ 
+	/*    return -1; */
+	/* }  */
+}
