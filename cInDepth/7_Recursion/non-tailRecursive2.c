@@ -11,3 +11,4 @@ int main() {
 	printf("%d ", fun(8));
 	return 0;
 }
+
