@@ -12,3 +12,4 @@ int main() {
 	get(6);
 	return 0;
 }
+
