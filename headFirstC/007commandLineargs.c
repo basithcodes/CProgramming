@@ -22,19 +22,19 @@ int main(int argc, char *argv[]) {
 				return 1;
 		}
 
-		argc -= optind;
-		argv += optind;
+	argc -= optind;
+	argv += optind;
 
-		// print the result
-		if (thick)
-			puts("Thick crust.");
+	// print the result
+	if (thick)
+		puts("Thick crust.");
 
-		if (delivery[0])
-			printf("To be delivered %s.\n", delivery);
-		puts("Ingredients:");
-		for (count = 0; count < argc; count++) {
-			puts(argv[count]);
-		}
+	if (delivery[0])
+		printf("To be delivered %s.\n", delivery);
+	puts("Ingredients: ");
+	for (count = 0; count < argc; count++) 
+		puts(argv[count]);
+
 	return 0;
 }
 

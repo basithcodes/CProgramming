@@ -5,4 +5,3 @@ int main() {
 	printf("%hi", y);
 	return 0;
 }
-
