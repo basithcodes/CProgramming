@@ -3,8 +3,8 @@
 
 void readFun(int *array, short int elements);
 void displayFun(int *array, short int elements);
-void dectobin(int decimalNumber);
-void biggestvalue(int number1, int number2, int number3);
+void dectobin(int *ptr, short int elements);
+int biggestvalue(int *ptr, short int elements);
 void reverseIntegerArray(int *array, short int elements);
 void displayOptions(void);
 
@@ -14,6 +14,7 @@ int main() {
 	short int elements;
 	int number;
 	int x = 1;
+	int biggest;
 
 	while (x) {
 		displayOptions();
@@ -37,12 +38,15 @@ int main() {
 				break;
 
 			case 3:
-				printf("Enter a number: \n");
-				scanf("%d",  &number);
-				dectobin(number);
+				dectobin(array, elements);
 				break;
 
 			case 4:
+				biggest = biggestvalue(array, elements);
+				printf("Biggest number: %d\n", biggest);
+				break;
+
+			case 5:
 				reverseIntegerArray(array, elements);
 				break;
 
@@ -60,7 +64,7 @@ void displayOptions(void) {
 		"1. Read Array",
 		"2. Display Array",
 		"3. Decimal to binary conversion",
-		"4. Biggest of three values",
+		"4. Biggest of all the values",
 		"5. Reverse the array string"
 	};
 
@@ -74,32 +78,50 @@ void readFun(int *array, short int elements) {
 	printf("Reading Array Values: ");
 	for (int i = 0; i < elements; i++) 
 		scanf("%d", &array[i]);
+	printf("\n");
 }
 
 void displayFun(int *array, short int elements) {
 	printf("Displaying Array Values: ");
 	for (int i = 0; i < elements; i++) 
-		printf("%d", array[i]);
+		printf("%d ", array[i]);
+	printf("\n");
 }
 
-void dectobin(int decimalNumber) {
+void dectobin(int *ptr, short int elements) {
 	// Write an efficient code for this function
 	int remainder, sum = 0;
 	int multiple = 1;
-	while (decimalNumber > 0) {
-		remainder = decimalNumber % 2;
-		decimalNumber = decimalNumber/2;
-		sum = sum + remainder * multiple;
-		multiple = multiple * 10;
+	int i, decimalNumber;
+	for (i = 0; i < elements; i++) {
+		decimalNumber = ptr[i];
+		while (decimalNumber > 0) {
+			remainder = decimalNumber % 2;
+			decimalNumber = decimalNumber/2;
+			sum = sum + remainder * multiple;
+			multiple = multiple * 10;
+		}
+		printf("Decimal: %d Binary: %d\n", ptr[i], sum);
+		sum = 0;
+		multiple = 1;
 	}
-	printf("Binary: %d\n", sum);
 }
 
-void biggestvalue(int number1, int number2, int number3) {
-
+int biggestvalue(int *ptr, short int elements) {
+	int big = ptr[0];
+	for (int i = 1; i < elements; i++) {
+		if (ptr[i] > big)
+			big = ptr[i];
+	}
+	return big;
 }
 
 void reverseIntegerArray(int *array, short int elements) {
-
+	int i, j, temp;
+	for (i = 0, j = elements - 1 ; i < elements / 2; i++, j--) {
+		temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
 }
 
