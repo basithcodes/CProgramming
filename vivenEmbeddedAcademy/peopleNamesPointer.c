@@ -6,6 +6,7 @@ int main(int argc, char *argv[]) {
 	char *names[] = {
 		"Alan", "Frank", "Mary", "Jones", "Lisa"
 	};
+
 	// safely get the size of ages
 	int count = sizeof(ages) / sizeof(int);
 	int i = 0;
@@ -31,11 +32,12 @@ int main(int argc, char *argv[]) {
 	for (i = 0; i < count; i++) 
 		printf("%s has %d years alive.\n", names[i], ages[i]);
 	printf("---\n");
-	
+
 	// fourth way with pointers in a stupid complex way
 	printf("Fourth Way:\n");
 	for (cur_age = ages, cur_name = names; (cur_age - ages) < count ; cur_age++, cur_name++) {
 		printf("%s lived %d years so far.\n", *cur_name, *cur_age);
 	}
+
 	return 0;
 }
