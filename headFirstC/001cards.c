@@ -26,7 +26,7 @@ int main() {
 			default:
 				val = atoi(card_name);
 				if ((val < 1) || (val > 10)) {
-					puts("I dont understand that value!");
+					puts("I dont understand that value!\n");
 					continue;
 				}
 		}

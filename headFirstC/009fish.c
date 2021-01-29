@@ -37,6 +37,7 @@ void label(struct fish a) {
 }
 
 int main() {
+
   struct fish snappy = {"Snappy",
                         "Piranaha",
                         68,
@@ -44,5 +45,6 @@ int main() {
                         {{"meat", 0.2}, {"swim in the jacuzzi", 7.5}}};
   /* catalog(snappy); */
   label(snappy);
+
   return 0;
 }
