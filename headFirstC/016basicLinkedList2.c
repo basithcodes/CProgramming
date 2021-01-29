@@ -25,6 +25,16 @@ void display(island *name) {
 	}
 }
 
+void release(island *start) {
+	island *i = start;
+	island *next = NULL;
+	for (; i != NULL; i = next) {
+		next = i->next;
+		free(i->name);
+		free(i);
+	}
+}
+
 int main() {
 	char name[80];
 	fgets(name, 80, stdin);
@@ -36,6 +46,7 @@ int main() {
 	p_island1->next = p_island2;
 
 	display(p_island1);
+	release(p_island1);
 
 	return 0;
 }
