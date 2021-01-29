@@ -15,13 +15,25 @@ void display(island *start) {
 }
 
 int main() {
-	island skull = {"Skull", "09:00", "17:00", NULL};
+
+	island amity = {"Amity", "09:00", "17:00", NULL};
 	island craggy = {"Craggy", "09:00", "17:00", NULL};
 	island isla_nublar = {"Isla Nubular", "09:00", "17:00", NULL};
 	island shutter = {"Shutter", "09:00", "17:00", NULL};
+	printf("before next:%ld\n", sizeof(amity));
 
-	skull.next = &craggy;
+	amity.next = &craggy;
+	printf("%ld\n", sizeof(amity));
 	craggy.next = &isla_nublar;
 	isla_nublar.next = &shutter;
-	display(&skull);
+	display(&amity);
+	printf("\n");
+
+	island skull = {"Skull", "09:00", "17:00", NULL};
+
+	isla_nublar.next = &skull;
+	skull.next = &shutter;
+	display(&amity);
+
+	return 0;
 }

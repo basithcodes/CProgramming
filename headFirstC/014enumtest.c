@@ -28,9 +28,12 @@ void display(fruit_order order) {
 }
 
 int main() {
+	printf("size: %ld\n", sizeof(fruit_order));
 	fruit_order apples = {"apples", "England", .amount.count=144, COUNT};
 	fruit_order strawberries= {"strawberries", "Spain", .amount.weight=17.6, POUNDS};
 	fruit_order oj= {"orange juice", "U.S.A", .amount.volume=10.6, PINTS};
+	printf("size: %ld\n", sizeof(fruit_order));
+
 
 	display(apples);
 	display(strawberries);
