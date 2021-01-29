@@ -6,7 +6,10 @@ enum colors {
 	PUCE
 };
 
+
 int main() {
 	enum colors favourite = RED;
 	printf("%i\n", favourite);
+	printf("Hi");
 }
+
