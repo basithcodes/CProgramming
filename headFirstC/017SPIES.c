@@ -27,8 +27,7 @@ void release(node *n) {
 	if (n) {
 		if (n->no)
 			release(n->no);
-		if (n->yes)
-			release(n->yes);
+		if (n->yes) release(n->yes);
 		if(n->question) free(n->question);
 		free(n);
 	}
@@ -70,7 +69,6 @@ int main() {
 						suspect, current->question);
 				fgets(question, 80, stdin);
 				current->question = strdup(question);
-
 				break;
 
 			}
