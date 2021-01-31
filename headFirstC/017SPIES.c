@@ -55,7 +55,7 @@ int main() {
 			} else if (current->no) {
 				current = current->no;
 			} else {
-				
+
 				/* Make the yes-node the new suspect name */
 				printf("Who's the suspect? ");
 				fgets(suspect, 20, stdin);
@@ -77,5 +77,7 @@ int main() {
 		}
 	} while(yes_no("Run again"));
 	release(start_node);
+
 	return 0;
+
 }
