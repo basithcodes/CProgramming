@@ -18,9 +18,7 @@ int main() {
 	printf("Calling add function\n");
 	res = add(x,y);
 	printf("add function return: %d\n", res);
-	printf("main(base address)----, %p\n", main);
-	printf("s---, %p\n", &s);
-	printf("z---, %p\n", &z);
+	printf("main(base address)----, %p\n", main); printf("s---, %p\n", &s); printf("z---, %p\n", &z);
 	printf("con---, %p\n", &con);
 	printf("x---, %p\n", &x);
 	printf("str---, %p\n", str);
