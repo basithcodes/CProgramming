@@ -59,6 +59,7 @@ int main() {
 				printf("Who's the suspect? ");
 				fgets(suspect, 20, stdin);
 				node *yes_node = create(suspect);
+				current->yes = yes_node;
 
 				/* Make the no-node copy of this question */
 				node *no_node = create(current->question);
@@ -68,6 +69,7 @@ int main() {
 				printf("Give me a question that is TRUE for %s but not for %s? ", 
 						suspect, current->question);
 				fgets(question, 80, stdin);
+				free(current->question);
 				current->question = strdup(question);
 				break;
 
