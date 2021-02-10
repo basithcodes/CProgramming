@@ -72,7 +72,6 @@ int main() {
 				free(current->question);
 				current->question = strdup(question);
 				break;
-
 			}
 		}
 	} while(yes_no("Run again"));
