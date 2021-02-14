@@ -1,5 +1,8 @@
 #include <stdio.h>
 
 int main() {
-	printf("%5d-%3d\n", 12,13);
+	int i;
+	for (i = 0; i <= 255; i++) {
+		printf("%d - %c\t", i, i);
+	}
 }
