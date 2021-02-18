@@ -2,7 +2,12 @@
 
 int main() {
 	int i;
-	for (i = 0; i <= 255; i++) {
-		printf("%d - %c\t", i, i);
-	}
+	unsigned int x = 384;
+
+	printf("%x\n", (unsigned char)0xffffffff);
+	printf("%d\n", (unsigned char)0xffffffff);
+	printf("%d\n", (char)0xffffffff);
+	printf("%d\n", (char)x);
+	printf("%d\n", (unsigned char)x);
+
 }
