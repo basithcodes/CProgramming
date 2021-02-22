@@ -4,7 +4,7 @@ const int con = 20; // .rodata segment
 int s = 20; // initiallized global variable --> .data
 int z; // uninitiallized global variable --> .bss
 // int z = 0; // initiallized with zero --> global variable --> .bss
-int add(int, int); // function declaration
+int add_fun(int, int); // function declaration
 
 int main() {
 	static int x = 10; // .data segment
@@ -16,7 +16,7 @@ int main() {
 	scanf("%c", &a);
 	char *str = "viven\n"; // string created by using character pointer
 	printf("Calling add function\n");
-	res = add(x,y);
+	res = add_fun(x,y);
 	printf("add function return: %d\n", res);
 	printf("main(base address)----, %p\n", main); 
 	printf("s---, %p\n", &s); 
@@ -26,7 +26,7 @@ int main() {
 	printf("str---, %p\n", str);
 }
 
-int add(int x, int y) { // function definition
-	printf("add(base address)---, %p\n", add);
+int add_fun(int x, int y) { // function definition
+	printf("add(base address)---, %p\n", add_fun);
 	return x+y;
 }
