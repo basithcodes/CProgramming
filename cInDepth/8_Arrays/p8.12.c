@@ -5,6 +5,7 @@
 #define COLUMNSB 2
 
 int main() {
+
 	int i,j,k;
 	int sum = 0;
 	int mata[ROWSA][COLUMNSA];
