@@ -1,20 +1,21 @@
-/* This program adds all elements of arrays */
+/* This program adds all elements of an arrays */
 
 /* My logic */
+
 #include <stdio.h>
+#define SIZE 5
 
-int main() {
-	int arr[5];
-	int i, sum = 0;
-
-	printf("Enter 5 elements\n");
-	for (i = 0; i < 5; i++) {
+int main(int argc, char *argv[])
+{
+	int arr[SIZE];
+	int sum = 0;
+	for (int i = 0; i < SIZE; i++) {
+		printf("Enter the size of arr[%d]: ", i);
 		scanf("%d", &arr[i]);
 		sum += arr[i];
 	}
 
-	// Printing the values of i
-		printf("%d\n", sum);
+	printf("%d\n", sum);
 
 	return 0;
 }

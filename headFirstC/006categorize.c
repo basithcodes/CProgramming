@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 			fprintf(file3, "%s\n", line);
 	}
 
-	fclose(file1);
+	fclose(file3);
 	fclose(file2);
 	fclose(file3);
 	return 0;

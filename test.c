@@ -23,6 +23,5 @@ int main() {
 	printf("short int %ld\n", sizeof(n));
 	printf("short int %ld\n", sizeof(short int));
 	printf("structure test %ld\n", sizeof(struct test));
-
 	return 0;
 }

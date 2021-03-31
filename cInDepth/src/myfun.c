@@ -13,8 +13,8 @@ int sumPrDivisors(int number) {
 		}
 	}
 	return sum;
-}
 
+}
 /* Function2 */
 /* convert() converts inches to cms and vice versa */
 
@@ -36,6 +36,7 @@ int Product(int number1, int number2) {
 	}
 	return sum;
 }
+
 
 /* Function4 */
 /* division is continuous subtraction (product and sum analogy) */
@@ -177,6 +178,7 @@ int cmpDate(int date1_day, int date1_month, int date1_year, int date2_day, int d
 	year = date2_year - date1_year;
 	month = date2_month - date1_month;
 	day = date2_day - date1_day;
+	
 
 	// Check if dates are valid
 	// If they are valid then subtract years, months and days.
@@ -185,4 +187,6 @@ int cmpDate(int date1_day, int date1_month, int date1_year, int date2_day, int d
 	/* if (year < 1) { */ 
 	/*    return -1; */
 	/* }  */
+	return 0;
+
 }
