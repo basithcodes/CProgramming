@@ -3,6 +3,7 @@
 int main(void)
 {
 	int j, max, min, count = 0;
+	
 	printf("Enter max and min values: ");
 	scanf("%d %d", &max, &min);
 	while (min <= max) {

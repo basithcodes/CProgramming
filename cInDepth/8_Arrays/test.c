@@ -1,42 +1,53 @@
 #include <stdio.h>
 
-#define ROWS 3
-#define COLUMNS 3
-void printMatrix(int arr[][COLUMNS], int size);
-void multiplyTwoMatrix(int arr[][COLUMNS], int arr[][]);
+#define ROWS1 3
+#define COLUMNS1 3
+#define ROWS2 COLUMNS1
+#define COLUMNS2 3
+
+void multiplyTwoMatrix(int matrix1[][COLUMNS1], int matrix2[][COLUMNS2], int resultantMatrix[][COLUMNS2]);
 
 int main(void)
 {
 	int i, j, k = 1;
-	int mat1[ROWS][COLUMNS];
-	int mat2[ROWS][COLUMNS];
-	int matResultant[ROWS][COLUMNS];
+	int mat1[ROWS1][COLUMNS1] = {
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9}
+	};
 
-	for (i = 0; i < ROWS; ++i) {
-		for (j = 0; j < COLUMNS; ++j, ++k) {
-			mat1[i][j] = k;
-			mat2[i][j] = k;
+	int mat2[ROWS2][COLUMNS2] = {
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9}
+	};
+
+	int matResultant[ROWS1][COLUMNS2] = {
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0}
+	};
+
+	multiplyTwoMatrix(mat1, mat2, matResultant);
+
+	for (i = 0; i < ROWS1; ++i) {
+		for (j = 0; j < COLUMNS1; ++j) {
+			printf("%d ", matResultant[i][j]);
 		}
+		printf("\n");
 	}
 
-	printMatrix(mat1, ROWS*COLUMNS);
-
-	/* for (i = 0; i < ROWS; ++i) { */
-	/*    for (j = 0; j < COLUMNS; ++j) { */
-	/*       printf("%d ", matResultant[i][j]); */
-	/*    } */
-	/*    printf("\n"); */
-	/* } */
 	return 0;
 }
 
-void printMatrix(int arr[][COLUMNS], int size) {
-	int rows = size / COLUMNS;
-	int i,j;
-	for (i = 0; i < rows; ++i) {
-		for (j = 0; j < COLUMNS; ++j) {
-			printf("%d ", arr[i][j]);
+void multiplyTwoMatrix(int matrix1[ROWS1][COLUMNS1], int matrix2[ROWS2][COLUMNS2], int resultantMatrix[][COLUMNS2]) {
+	int i, j, k;
+	for (i = 0; i < ROWS1; ++i) {
+		for (j = 0; j < COLUMNS2; ++j) {
+			/* resultantMatrix[i][j] = 0; */
+			for (k = 0; k < ROWS2; ++k) {
+				resultantMatrix[i][j] += matrix1[j][k] * matrix2[k][j];
+			}
 		}
-		printf("\n");
 	}
 }
