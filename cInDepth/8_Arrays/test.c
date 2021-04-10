@@ -1,34 +1,42 @@
 #include <stdio.h>
 
-#define SIZE 8 
+#define ROWS 3
+#define COLUMNS 3
+void printMatrix(int arr[][COLUMNS], int size);
+void multiplyTwoMatrix(int arr[][COLUMNS], int arr[][]);
 
-void sumOfSquares(int arr[], int sizeOfArray);
+int main(void)
+{
+	int i, j, k = 1;
+	int mat1[ROWS][COLUMNS];
+	int mat2[ROWS][COLUMNS];
+	int matResultant[ROWS][COLUMNS];
 
-int main() {
-	int sum = 0, i;
-	int arr[SIZE]; 
-	printf("Array contains: \n");
-	for (i = 0; i < SIZE; ++i) {
-		arr[i] = i+1;
-		printf("%d ", arr[i]);
+	for (i = 0; i < ROWS; ++i) {
+		for (j = 0; j < COLUMNS; ++j, ++k) {
+			mat1[i][j] = k;
+			mat2[i][j] = k;
+		}
 	}
-	printf("\n");
-	sumOfSquares(arr, SIZE);
+
+	printMatrix(mat1, ROWS*COLUMNS);
+
+	/* for (i = 0; i < ROWS; ++i) { */
+	/*    for (j = 0; j < COLUMNS; ++j) { */
+	/*       printf("%d ", matResultant[i][j]); */
+	/*    } */
+	/*    printf("\n"); */
+	/* } */
+	return 0;
 }
 
-void sumOfSquares(int arr[], int sizeOfArray) {
-	int sum = 0, i;
-
-	printf("Square of that content: ");
-	for (i = 0; i < sizeOfArray; ++i) {
-		arr[i] = arr[i]*arr[i];
-		printf("%d ", arr[i]);
-		sum = sum + arr[i];
+void printMatrix(int arr[][COLUMNS], int size) {
+	int rows = size / COLUMNS;
+	int i,j;
+	for (i = 0; i < rows; ++i) {
+		for (j = 0; j < COLUMNS; ++j) {
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
 	}
-	/* for (i = 0; i < sizeOfArray; ++i) { */
-	/*    sum = sum + arr[i]; */
-	/* } */
-	printf("\nSum of squares of above numbers = %d\n", sum);
-
-	printf("\n");
 }

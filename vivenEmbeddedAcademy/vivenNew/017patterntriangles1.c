@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include "pattern.c"
+
 int main(void) {
-	int i = 2;
-	if(i = 2,0)
-		printf("Hai");
+	allpattern();
 	return 0;
 }
+
