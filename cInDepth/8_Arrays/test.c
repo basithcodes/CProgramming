@@ -44,9 +44,8 @@ void multiplyTwoMatrix(int matrix1[ROWS1][COLUMNS1], int matrix2[ROWS2][COLUMNS2
 	int i, j, k;
 	for (i = 0; i < ROWS1; ++i) {
 		for (j = 0; j < COLUMNS2; ++j) {
-			/* resultantMatrix[i][j] = 0; */
-			for (k = 0; k < ROWS2; ++k) {
-				resultantMatrix[i][j] += matrix1[j][k] * matrix2[k][j];
+			for (k = i; k <= j; ++k) {
+				resultantMatrix[i][j] += matrix1[i][k] * matrix2[k][i];
 			}
 		}
 	}
