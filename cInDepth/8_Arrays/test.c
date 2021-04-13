@@ -5,7 +5,8 @@
 #define ROWS2 COLUMNS1
 #define COLUMNS2 3
 
-void multiplyTwoMatrix(int matrix1[][COLUMNS1], int matrix2[][COLUMNS2], int resultantMatrix[][COLUMNS2]);
+void multiplyTwoMatrix(int matrix1[][COLUMNS1], int matrix2[][COLUMNS2], 
+		int resultantMatrix[][COLUMNS2]);
 
 int main(void)
 {
@@ -39,11 +40,12 @@ int main(void)
 	return 0;
 }
 
-void multiplyTwoMatrix(int matrix1[ROWS1][COLUMNS1], int matrix2[ROWS2][COLUMNS2], int resultantMatrix[][COLUMNS2]) {
+void multiplyTwoMatrix(int matrix1[ROWS1][COLUMNS1], 
+		int matrix2[ROWS2][COLUMNS2], int resultantMatrix[][COLUMNS2]) {
 	int i, j, k;
 	for (i = 0; i < ROWS1; ++i) {
 		for (j = 0; j < COLUMNS2; ++j) {
-			for (k = i; k <= j; ++k) {
+			for (k = i; k < ROWS2; ++k) {
 				resultantMatrix[i][j] += matrix1[i][k] * matrix2[k][i];
 			}
 		}
