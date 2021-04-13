@@ -5,8 +5,13 @@
 #define ROWS2 COLUMNS1
 #define COLUMNS2 3
 
+<<<<<<< HEAD
 void multiplyTwoMatrix(int matrix1[][COLUMNS1], int matrix2[][COLUMNS2], 
 		int resultantMatrix[][COLUMNS2]);
+=======
+void multiplyTwoMatrix(int matrix1[][COLUMNS1], 
+		int matrix2[][COLUMNS2], int resultantMatrix[][COLUMNS2]);
+>>>>>>> 6f4a57c1a5b515f389aca05736ebcab42d30a6a0
 
 int main(void)
 {
