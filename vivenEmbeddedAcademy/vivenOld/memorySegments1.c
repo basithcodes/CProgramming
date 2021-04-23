@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 const int con = 20; // .rodata segment
+	static 
 int s = 20; // initiallized global variable --> .data
 int z; // uninitiallized global variable --> .bss
 // int z = 0; // initiallized with zero --> global variable --> .bss
@@ -12,6 +13,7 @@ int main() {
 	int y = 20;
 	int res = 0;
 	char a;
+	/* static char a; */
 	printf("Enter a character: ");
 	scanf("%c", &a);
 	char *str = "viven\n"; // string created by using character pointer

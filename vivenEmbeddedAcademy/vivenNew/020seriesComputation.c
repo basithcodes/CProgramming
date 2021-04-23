@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void series1(void);
 void series2(void);
@@ -12,7 +13,6 @@ void series9(void);
 
 int main(int argc, char *argv[]) {
 	int option;
-	char quit = 0;
 	int i = 0;
 
 	char series[][50] = {
@@ -27,50 +27,50 @@ int main(int argc, char *argv[]) {
 		"9. 1-1/2!+1/3!-1/4!.... \n\n"
 	};
 
-while (option != (int)'q') {
-	printf("\nIf you want to exit press 'q'\n");
-	while (i < 10) {
-		printf("%s", *(series));
-		i++;
-	}
+	do { 
+		printf("\n\nIf you want to exit press '0'\n\n");
+		while (i < 9) {
+			printf("%s", series[i]);
+			++i;
+		}
+		printf("\nSelect which series sum you want to calculate: ");
+		scanf("%d", &option);
 
-	printf("\nSelect which series sum you want to calculate: ");
-	scanf("%d", &option);
+		switch (option) {
+			case 1:
+				series1();
+				break;
+			case 2:
+				series2();
+				break;
+			case 3:
+				series3();
+				break;
+			case 4:
+				series4();
+				break;
+			case 5:
+				series5();
+				break;
+			case 6:
+				series6();
+				break;
+			case 7:
+				series7();
+				break;
+			case 8:
+				series8();
+				break;
+			case 9:
+				series9();
+				break;
+			/* case 'q': */
+			/*   exit(0); */
+			default:
+				printf("hello\n");
+		}
+	} while (option != 0);
 
-	switch (option) {
-		case 1:
-			series1();
-			break;
-		case 2:
-			series2();
-			break;
-		case 3:
-			series3();
-			break;
-		case 4:
-			series4();
-			break;
-		case 5:
-			series5();
-			break;
-		case 6:
-			series6();
-			break;
-		case 7:
-			series7();
-			break;
-		case 8:
-			series8();
-			break;
-		case 9:
-			series9();
-			break;
-		default:
-			continue;
-			scanf("%d", &option);
-	}
-}
-	series2();
 	return 0;
 }
 
@@ -114,6 +114,7 @@ void series2(void) {
 
 void series3(void) {
 	//"3. x+x^2/2!+x^3/3!+x^4/4!....\n\n",
+	
 
 }
 
@@ -140,4 +141,3 @@ void series8(void) {
 void series9(void) {
 
 }
-

@@ -10,5 +10,5 @@ void twinPrimes(int limit);
 int isLeap(int year);
 void isValid(short int day, short int month, short int year);
 int cmpDate(int date1_day, int date1_month, int date1_year, 
-				int date2_day, int date2_month, int date2_year);
+		int date2_day, int date2_month, int date2_year);
 
