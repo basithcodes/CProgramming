@@ -2,7 +2,6 @@
  * sort it using search sort technique*/
 
 #include <stdio.h>
-
 void searchSort(int arrayOfNumbers[], int arraySize);
 void printArrayValues(int arrayOfNumbers[], int arraySize);
 
@@ -32,8 +31,8 @@ void searchSort(int arrayOfNumbers[], int arraySize) {
 			if (arrayOfNumbers[j] <= smallestNumber) {
 				smallestNumber = arrayOfNumbers[j];
 				smallestNumberPosition = j;
-			} else if(arrayOfNumbers[j] >= smallestNumber) {
-				continue;
+			/* } else if(arrayOfNumbers[j] >= smallestNumber) { */
+			/*   continue; */
 			}
 		}
 

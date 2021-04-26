@@ -59,4 +59,5 @@ void printArrayValues(int arr[], int arraySize) {
 	for (index = 0; index < arraySize; index++) {
 		printf("%d ", arr[index]);
 	}
+	printf("\n");
 }

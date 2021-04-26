@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
 {
 	int arr[SIZE];
 	int sum = 0;
-	for (int i = 0; i < SIZE; i++) {
-		printf("Enter the size of arr[%d]: ", i);
+	for (int i = 0; i <= SIZE; i++) {
+		printf("Enter the element for the arr[%d]: ", i);
 		scanf("%d", &arr[i]);
 		sum += arr[i];
 	}
