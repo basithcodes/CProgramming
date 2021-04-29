@@ -1,13 +1,13 @@
-/* This program uses insertion sort technique to sort the unsorted array number list */
+/* This program uses insertion sort technique to sort the unsorted number list */
 /* This logic is according to the explantion provided in c in depth book */
 /* C in depth book logic is better than this logic, explantion and logic 
- * implimentation are different in book */
+ * implimentation are different in the book */
 
 #include <stdio.h>
 
 #define MAX 10
 
-void moveElementsToRight(int arr[], int leastValueIndex, int highValueIndex);
+void moveElementsToRight(int arr[], int leastIndex, int highIndex);
 void printArrayValues(int arr[], int arraySize);
 
 int main(void) {
@@ -16,6 +16,7 @@ int main(void) {
 	printf("Before Sorting\n");
 	printArrayValues(arrayOfNumbers, MAX);
 	printf("\n");
+
 	/* Insertion Sort Technique */
 	for (i = 1; i < MAX; i++) {
 		for (j = 0; j != i; j++) {
@@ -33,9 +34,9 @@ int main(void) {
 	return 0;
 }
 
-void moveElementsToRight(int arr[], int leastValueIndex, int highValueIndex) {
-	int i = highValueIndex, j = leastValueIndex;
-	while (j < i) {
+void moveElementsToRight(int arr[], int leastIndex, int highIndex) {
+	int i = highIndex, j = leastIndex;
+	while (i > j) {
 		arr[i] = arr[i-1];
 		--i;
 	}

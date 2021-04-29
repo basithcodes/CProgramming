@@ -7,50 +7,39 @@
 #define ARRAYSIZE3 ARRAYSIZE1+ARRAYSIZE2
 
 void printArrayValues(int arr[], int arraySize);
+void scanArrayValues(int arr[], int arraySize);
 
 int main(void) {
-	int sortedList1[ARRAYSIZE1] = {2, 4, 5, 7, 8, 9};
-	int sortedList2[ARRAYSIZE2] = {11, 14, 17, 29, 34, 45, 54, 67, 89, 90};
-	int sortedListMerged[ARRAYSIZE3] = {0};
+	int sortedList1[ARRAYSIZE1] = {1, 2, 8, 10, 14, 18};
+	int sortedList2[ARRAYSIZE2] = {3, 5, 7, 9, 11, 12, 13, 15, 89, 90};
+	int sortedListsMerged[ARRAYSIZE3] = {0};
 
-	int i = 0, j = 0, value;
+	int i = 0, j = 0, k = 0;
 
 	/* Print two lists */
 	printArrayValues(sortedList1, ARRAYSIZE1);
 	printArrayValues(sortedList2, ARRAYSIZE2);
 
-	if (ARRAYSIZE1 < ARRAYSIZE2) {
-		value = ARRAYSIZE1;
-	} else {
-		value = ARRAYSIZE2;
-	}
-
-	/* Compare two lists and put it in third list, put third list in ascending order */
-	while (i < value || j < value) {
+	/* Compare two lists and put the values in third list, 
+	 * third list should be in ascending order */
+	while (i < ARRAYSIZE1 && j < ARRAYSIZE2) {
 		if (sortedList1[i] < sortedList2[j]) {
-			sortedListMerged[i+j] = sortedList1[i];
-			i++;
+			sortedListsMerged[k] = sortedList1[i];
+			i++, k++;
 		} else {
-			sortedListMerged[i+j] = sortedList2[j];
-			j++;
+			sortedListsMerged[k] = sortedList2[j];
+			j++, k++;
 		}
 	}
 
-	/* Merge the rest of the list */
-	/* if (i < ARRAYSIZE1) { */
-	/*   while (i < ARRAYSIZE1) { */
-	/*     sortedListMerged[i] = sortedList2[i]; */
-	/*     ++i; */
-	/*   } */
-	/* } else { */
-	/*   while (j < ARRAYSIZE2) { */
-	/*     sortedListMerged[j] = sortedList2[j]; */
-	/*     ++j; */
-	/*   } */
-	/* } */
+	/* Merge rest of the list */
+	while (j < ARRAYSIZE2 && k < ARRAYSIZE3) {
+		sortedListsMerged[k] = sortedList2[j];
+		j++, k++;
+	}
 
 	/* Print the list after completely combining two lists */
-	printArrayValues(sortedListMerged, ARRAYSIZE3);
+	printArrayValues(sortedListsMerged, ARRAYSIZE3);
 
 	return 0;
 }
@@ -62,4 +51,12 @@ void printArrayValues(int arr[], int arraySize) {
 		printf("%d ", arr[index]);
 	}
 	printf("\n");
+}
+
+/* This function will scan one dimensional array values */
+void scanArrayValues(int arr[], int arraySize) {
+	int index;
+	for (index = 0; index < arraySize; index++) {
+		scanf("%d", &arr[index]);
+	}
 }
