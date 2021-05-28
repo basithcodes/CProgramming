@@ -1,27 +1,37 @@
-#include<stdio.h>
-struct test {
-	char b;
-	int a;
-	float c;
-	struct test *r;
-};
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-	int x = 10, y = 20;
-	int z;
-	z = x * y + 3.0/2 * 4;
-	x++;
-	char m;
-	short int n;
-	int *ptr_int;
-	char *ptr_char;
+char *smash(const char **words, size_t count) {
+	int maxsize = 0;
+	for (int i = 0; i < count; i++) {
+		maxsize += strlen(words[i]);
+	}
+	maxsize += count;
+	/* printf("%d", maxsize); */
 
-	printf("char %ld\n", sizeof(m));
-	printf("int %ld\n", sizeof(x));
-	printf("ptr_int %ld\n", sizeof(ptr_int));
-	printf("ptr_char %ld\n", sizeof(ptr_char));
-	printf("short int %ld\n", sizeof(n));
-	printf("short int %ld\n", sizeof(short int));
-	printf("structure test %ld\n", sizeof(struct test));
+	char *v = (char *)malloc(maxsize);
+	char s = ' ';
+	char e = '\0';
+	int i;
+	for(i = 0; i < count; i++) {
+		strcat(v, words[i]);
+		if (*(v + strlen(words[i])) == '\0') {
+			*(v + strlen(words[i])) = ' ';
+		}
+	}
+	if (*(v + strlen(words[i])) == ' ') {
+		*(v + strlen(words[i])) = '\0';
+	}
+
+	return v;
+}
+
+int main(void)
+{
+	const char *words[] = {"hello", "world"};
+	char *received = smash(words, sizeof(words)/sizeof(words[0]));
+	printf("%s", received);
+	printf("\n");
 	return 0;
 }

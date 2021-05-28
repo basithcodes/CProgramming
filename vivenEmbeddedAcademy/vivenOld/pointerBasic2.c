@@ -6,9 +6,11 @@ void displayFun(int* num1, int* num2);
 
 int main() {
 	int x, y;
-	readFun(&x, &y);
-	swap(&x, &y);
-	displayFun(&x, &y);
+	int i = 3;
+
+	/* readFun(&x, &y); */
+	/* swap(&x, &y); */
+	/* displayFun(&x, &y); */
 	return 0;
 }
 

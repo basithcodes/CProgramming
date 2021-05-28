@@ -5,5 +5,6 @@ int main()
 { 
     enum months month = Dec; 
     printf("The day number stored in d is %d\n", month); 
+    printf("hello world");
     return 0; 
 }

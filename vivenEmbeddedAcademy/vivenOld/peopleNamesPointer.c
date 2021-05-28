@@ -13,8 +13,10 @@ int main(int argc, char *argv[]) {
 
 	// first way using indexing
 	printf("First Way:\n");
-	for (i = 0; i < count; i++) 
-		printf("%s has %d years alive.\n", names[i], ages[i]);
+	for (i = 0; i < count; i++) {
+		/* printf("%s has %d years alive.\n", names[i], ages[i]); */
+		printf("%s has %d years alive.\n", *(names+2), ages[i]);
+	}
 	printf("---\n");
 
 	// setup the pointer to start of the array

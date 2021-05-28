@@ -1,0 +1,7 @@
+test.c: In function ‘main’:
+test.c:12:22: error: expected ‘;’ before ‘return’
+   12 |   printf("%d", NUMBER+1)
+      |                      ^
+      |                      ;
+   13 |  return 0;
+      |  ~~~~~~               

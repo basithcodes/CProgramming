@@ -1,11 +1,14 @@
 #include <stdio.h>
+#include "/home/basith/Coding/mydefine.h"
+
+#include <strings.h>
 
 const int con = 20; // .rodata segment
-	static 
 int s = 20; // initiallized global variable --> .data
 int z; // uninitiallized global variable --> .bss
-// int z = 0; // initiallized with zero --> global variable --> .bss
-int add_fun(int, int); // function declaration
+int z1 = 0; // initiallized with zero --> global variable --> .bss
+/* int add_fun(int, int); // function declaration */
+static int x1 = 25;
 
 int main() {
 	static int x = 10; // .data segment
@@ -26,9 +29,4 @@ int main() {
 	printf("con---, %p\n", &con);
 	printf("x---, %p\n", &x);
 	printf("str---, %p\n", str);
-}
-
-int add_fun(int x, int y) { // function definition
-	printf("add(base address)---, %p\n", add_fun);
-	return x+y;
 }

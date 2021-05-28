@@ -40,5 +40,3 @@ void amicableNumber(int range0, int range1) {
 		/* printf("\n\n"); */
 	}
 }
-
-
