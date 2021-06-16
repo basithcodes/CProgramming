@@ -1,5 +1,4 @@
-/* This program will add customers data to the sqlite database  */
-
+/* This program will add customers data to the sqite database  */
 #include <stdio.h>
 #include <string.h>
 #include <sqlite3.h>
@@ -7,14 +6,15 @@
 
 int createDatabase();
 int insertDataIntoDatabase();
+int searchDatabase();
+
+int callback(void*, int, char**, char**);
 
 int main(void)
 {
-
-	printf("%s\n", sqlite3_libversion());
-
 	int option;
 	int i;
+	sqlite3 *db;
 	char *databaseOptions[] = {
 		"0. Quit the program",
 		"1. Create the database",
@@ -24,12 +24,15 @@ int main(void)
 		"5. Delete the database",
 	};
 
+	int optionsLength = sizeof(databaseOptions)/sizeof(databaseOptions[0]);
+
 	while (1) {
 
-		printf("Select an option");
-		for(i = 0; i < 5; i++) {
+		printf("Select an option\n");
+		for(i = 0; i < optionsLength; i++) {
 			printf("%s\n", databaseOptions[i]);
 		}
+		printf("\nOption: ");
 		scanf("%d", &option);
 
 		switch (option) {
@@ -41,18 +44,22 @@ int main(void)
 			case 2:
 				insertDataIntoDatabase();
 				break;
+			case 3:
+				break;
+			case 4:
+				searchDatabase();
+				break;
 			default:
 				exit(1);
 		}
-
 	}
-	
+
 	// 3. Update the data of the database
-	
+
 	// 4. Delete database
-	
+
 	// 5. Search data in the database
-	
+
 	return 0;
 }
 
@@ -61,6 +68,12 @@ int createDatabase() {
 	sqlite3 *db;
 
 	sqlite3_stmt *res;
+
+	/* I want to create a database, but its name should be given by the user */
+	/* I want to scan database name and put it in sqlite3_open */
+	/* char* databaseName; */
+	/*  */
+	/* scanf("%s", databaseName); */
 
 	int responseConnection = sqlite3_open("customers.db", &db);
 
@@ -71,7 +84,7 @@ int createDatabase() {
 		return 1;
 	}
 
-	printf("Database has been created successfully\n");
+	printf("\nDatabase has been created successfully\n");
 
 	responseConnection = sqlite3_prepare_v2(db, "SELECT SQLITE_VERSION()", -1, &res, 0);
 
@@ -103,20 +116,66 @@ int insertDataIntoDatabase() {
 		return 1;
 	}
 
-	char *sql = "DROP TABLE IF EXISTS Customers;"
-		"CREATE TABLE Customers(Id INT, Name TEXT, Number TEXT, Bubble TEXT, Melton TEXT, Owe TEXT, Deposit TEXT);"
-		"INSERT INTO Customers VALUES(1, 'Abdul Basith', '9701648711', '2b', '2mc', '50', 'nd');"
-		"INSERT INTO Customers VALUES(2, 'Mujju', '9701648712', '2bc', '2m', '0', '500');"
-		"INSERT INTO Customers VALUES(3, 'Siraj Uddin', '9701648714', '2b', '0', '500', 'nd');";
+	char *sql =  "DROP TABLE IF EXISTS Customers;"
+		"CREATE TABLE Customers(Name TEXT, Number TEXT, Bubble TEXT, Melton TEXT, Owe TEXT, Deposit TEXT);"
+		"INSERT INTO Customers VALUES('Abdul Basith', '123454', '2b', '2mc', '50', 'nd');"
+		"INSERT INTO Customers VALUES('Mujju', '12343223', '2bc', '2m', '0', '500');"
+		"INSERT INTO Customers VALUES('Siraj Uddin', '32523465', '2b', '0', '500', 'nd');";
 	rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
 
 	if (rc != SQLITE_OK) {
 		fprintf(stderr, "SQL error: %s\n", err_msg);
 		sqlite3_free(err_msg);
 		sqlite3_close(db);
+	} else {
+		fprintf(stdout, "Table Customers created successfully\n");
+	}
+
+	int last_id = sqlite3_last_insert_rowid(db);
+	printf("The last Id of the inserted row is %d\n", last_id);
+
+	sqlite3_close(db);
+
+	return 0;
+}
+
+// Search database function
+int searchDatabase() {
+	sqlite3 *db;
+	char *err_msg;
+
+	int rc = sqlite3_open("customers.db", &db);
+
+	if (rc != SQLITE_OK) {
+		fprintf(stderr, "Failed to open the database\n");
+		sqlite3_close(db);
+		return 1;
+	}
+
+	char *sql = "SELECT * FROM Customers;";
+	/* char *sql = "SELECT  FROM Customers;"; */
+
+	rc = sqlite3_exec(db, sql, callback, 0, &err_msg);
+
+	if (rc != SQLITE_OK) {
+		fprintf(stderr, "Failed to select data\n");
+		fprintf(stderr, "sql error: %s\n", err_msg);
+		free(err_msg);
+		sqlite3_close(db);
+		return 1;
 	}
 
 	sqlite3_close(db);
 
+	return 0;
+}
+
+int callback(void* notUsed, int argc, char** argv, char** azColName) {
+	notUsed = 0;
+	int i;
+	for (i = 0; i < argc; ++i) {
+		printf("%s = %s\n", azColName[i], argv[i]?argv[i]:"NULL");
+	}
+	printf("\n");
 	return 0;
 }
