@@ -1,7 +1,9 @@
 #include <stdio.h>
-#include "/home/basith/Coding/mydefine.h"
+/* #include "/home/basith/Coding/mydefine.h" */
 
 #include <strings.h>
+
+int add_fun(int, int);
 
 const int con = 20; // .rodata segment
 int s = 20; // initiallized global variable --> .data
@@ -16,12 +18,15 @@ int main() {
 	int y = 20;
 	int res = 0;
 	char a;
+
 	/* static char a; */
 	printf("Enter a character: ");
 	scanf("%c", &a);
 	char *str = "viven\n"; // string created by using character pointer
+
 	printf("Calling add function\n");
 	res = add_fun(x,y);
+
 	printf("add function return: %d\n", res);
 	printf("main(base address)----, %p\n", main); 
 	printf("s---, %p\n", &s); 
@@ -29,4 +34,10 @@ int main() {
 	printf("con---, %p\n", &con);
 	printf("x---, %p\n", &x);
 	printf("str---, %p\n", str);
+
+	return 0;
+}
+
+int add_fun(int x, int y) {
+	return (x+y);
 }
