@@ -6,6 +6,10 @@ void display(float [], int);
 int main() {
 	int sizeOfArray;
 	float * arr;
+	int array[] = {0};
+
+	/* array++; // invalid */
+
 	printf("Enter the size of an array: ");
 	scanf("%d", &sizeOfArray);
 
@@ -19,6 +23,7 @@ int main() {
 
 void accept(float arr[], int size) {
 	int i;
+	arr++;
 	for (i = 0; i < size; i++) {
 		printf("arr[%d] = ", i);
 		scanf("%f", arr+i);
