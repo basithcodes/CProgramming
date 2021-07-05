@@ -1,15 +1,11 @@
-#include <stdio.h>
-
-void fun(int array[]) {
-	printf("%d", *array);
-	printf("%d", *array+1);
-	printf("%d", *(array+1));
-	array++;
-}
-
-int main(void)
+void main()
 {
-	int arr[10] = {1, 2, 3, 4, 5};
-	fun(arr);
-	return 0;
+	unsigned int a,b;
+	unsigned char*ptr;
+	ptr=&a;
+	a=511;
+	b=*ptr;
+	printf("\n%d %d %d",a,b,*ptr);
+	*ptr=10;
+	printf("\n%d %d %d",a,b,*ptr); 
 }

@@ -1,0 +1,1 @@
+/* WAP to accept an array of elements find out the maximum repeating elements */
