@@ -37,12 +37,25 @@ void display(int array[], int array_size) {
 }
 
 void display_repeated_element_count(int array[], int array_size) {
-	int i, j;
-	for (i = 0; i < array_size; ++i) {
-		for (j = 0; j < array_size; ++j) {
-			if (*(array+i) != *(array+j)) {
-				unique[k] = *
+	int i,j,count, freq[array_size];
+	for(i=0;i<array_size;i++) {
+		freq[i]= -1;
+	}
+
+	for(i=0;i<array_size;i++) {
+		count=1;
+		for(j=i+1;j<array_size;j++) {
+			if(array[i]==array[j]) {
+				count++;
+				freq[j]=0;
 			}
 		}
+		if(freq[i]!=0)
+			freq[i]=count;
+	}
+
+	for(i=0;i<array_size;i++) {
+		if(freq[i]!=0)
+			printf("%d occured %d times\n",array[i],freq[i]);
 	}
 }
