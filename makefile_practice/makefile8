@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -g
+
+SOURCE = ext8.c util8.c
+OBJS = $(SOURCE:.c=.o)
+
+ext8: ${OBJS}
+	${CC} -o ext8 ${OBJS}
+
+util8.o: util8.h
+
+ctags:
+	ctags *.c *.h
+

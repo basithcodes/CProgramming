@@ -1,0 +1,8 @@
+CC = gcc
+CFLAGS = -g
+
+ext5: ext5.o util5.o
+	$(CC) -o ext5 ext5.o util5.o
+
+util5.o: util5.h
+

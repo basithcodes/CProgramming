@@ -1,0 +1,4 @@
+ext4: ext4.o util4.o
+	cc -o ex4 ext4.o util4.o
+
+util4.o: util4.h

@@ -1,0 +1,15 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-c",
+      "-o",
+      "ext5.o",
+      "ext5.c"
+    ],
+    "directory": "/home/basith/Coding/CProgramming/makefile_practice",
+    "file": "/home/basith/Coding/CProgramming/makefile_practice/ext5.c",
+    "output": "/home/basith/Coding/CProgramming/makefile_practice/ext5.o"
+  }
+]

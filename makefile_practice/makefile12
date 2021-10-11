@@ -1,0 +1,18 @@
+CC = gcc
+CFLAGS = -g
+OUTPUT_OPTION = -MMD -MP -o $@
+
+SOURCE = $(wildcard *11.c)
+OBJS = $(SOURCE:.c=.o)
+DEPS = $(SOURCE:.c=.d)
+-include ${DEPS}
+
+ex11: ${OBJS}
+	${CC} -o ex11 ${OBJS}
+
+ctags:
+	ctags *.c *.h
+
+help:
+	-@echo "make ex11: make the executable"
+	-@echo "make ctags: build the tags file"
