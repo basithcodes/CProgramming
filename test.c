@@ -1,11 +1,10 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int main(void) {
-	printf("");
-	for (int i = 0; i < 23; i++) {
-		printf("hello\n");
+	unsigned char i;
+	for (i = 1; i <= 255; i++) {
+		printf("%d\n", i);
 	}
-	printf("Hello\n");
 }
-
-
