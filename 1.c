@@ -10,4 +10,5 @@ char a[20] = {'v','i','v','e','n'};
 	printf("%ld\n", sizeof(a));
 	printf("%ld", strlen(a));
 	printf("hello");
+
 }
