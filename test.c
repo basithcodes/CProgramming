@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 int main(void) {
-	unsigned char i;
-	for (i = 1; i <= 255; i++) {
-		printf("%d\n", i);
-	}
+	typedef int a[10];
+	a ma;
+	a mb;
+	ma[0] = 0;
 }
